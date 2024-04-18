@@ -90,6 +90,7 @@ class SignInActivity : AppCompatActivity() {
             logoIntroBounceAnimatorY.duration = 350
             logoIntroBounceAnimatorY.interpolator = AccelerateDecelerateInterpolator()
 
+            // m
             val logoUpwardMoveAnimator = ObjectAnimator.ofFloat(
                 binding.ivLogo,
                 "translationY",
