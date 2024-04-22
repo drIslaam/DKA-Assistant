@@ -1,0 +1,510 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <!-- Define your data variables here -->
+    </data>
+
+    <!-- Your layout content goes here -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+            app:cardBackgroundColor="#FBFBFB"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/ageTIL"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="15dp"
+                            android:layout_weight="1"
+                            android:hint="Age"
+                            app:boxBackgroundColor="#F0F0F0"
+                            app:suffixText="Years"
+                            app:suffixTextAppearance="@style/SuffixTextAppearance"
+                            app:suffixTextColor="#CACACA">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/ageInput"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="numberDecimal"
+                                android:nextFocusDown="@id/weightInput"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:text="" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/weightTIL"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="Weight"
+                            app:boxBackgroundColor="#F0F0F0"
+                            app:suffixText="Kg"
+                            app:suffixTextAppearance="@style/SuffixTextAppearance"
+                            app:suffixTextColor="#CACACA">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/weightInput"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="numberDecimal"
+                                android:nextFocusDown="@id/rbsInput"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:text="" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/rbsTIL"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_weight="1"
+                            android:hint="RBS"
+                            app:boxBackgroundColor="#F0F0F0"
+                            app:suffixText="mg/dL"
+                            app:suffixTextAppearance="@style/SuffixTextAppearance"
+                            app:suffixTextColor="#CACACA">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/rbsInput"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:nextFocusDown="@id/potInput"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:text="" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/potTIL"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:hint="K⁺"
+                            app:boxBackgroundColor="#F0F0F0"
+                            app:suffixText="mmol/L"
+                            app:suffixTextAppearance="@style/SuffixTextAppearance"
+                            app:suffixTextColor="#CACACA">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/potInput"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="numberDecimal"
+                                android:nextFocusDown="@id/po4Input"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:text="" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/po4TIL"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_weight="1"
+                            android:hint="PO₄"
+                            app:boxBackgroundColor="#F0F0F0"
+                            app:suffixText="mmol/L"
+                            app:suffixTextAppearance="@style/SuffixTextAppearance"
+                            app:suffixTextColor="#CACACA">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/po4Input"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:importantForAutofill="no"
+                                android:inputType="numberDecimal"
+                                android:nextFocusDown="@id/sodInput"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:text="" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/sodTIL"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:hint="Na⁺"
+                            app:boxBackgroundColor="#F0F0F0"
+                            app:suffixText="mmol/L"
+                            app:suffixTextAppearance="@style/SuffixTextAppearance"
+                            app:suffixTextColor="#CACACA">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/sodInput"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionDone"
+                                android:inputType="number"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:text="" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/insulin_bk"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvInsulin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="1dp"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text=""
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="15dp"
+            android:layout_marginBottom="2dp"
+            android:background="#ececec"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvIVInfusion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text=""
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="15dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/d10w_bk"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text=""
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
+
+
+        <TextView
+            android:id="@+id/resusNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="60dp"
+            android:layout_marginTop="10dp"
+            android:background="#e4e4e4"
+            android:gravity="left"
+            android:padding="20dp"
+            android:text=""
+            android:textSize="10dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/input_bk"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/pHTIL"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:hint="pH"
+                        app:suffixTextColor="#CACACA">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/pHInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:text="" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/pCO2TIL"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:hint="pCO₂"
+                        app:suffixText="mmHg"
+                        app:suffixTextColor="#CACACA">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/pCO2Input"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:text="" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/chlorTIL"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:hint="Cl⁻"
+                        app:suffixText="mmol/L"
+                        app:suffixTextColor="#CACACA">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/chlorInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:text="" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                     
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/albuminTIL"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:hint="Albumin"
+                        app:suffixText="g/L"
+                        app:suffixTextColor="#CACACA">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/albumin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:text="" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/insulin_bk"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="AG: 12 | Δ-Δ Gap: 0 | Δ Ratio: 0 "
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="2dp"
+            android:background="#ececec"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="Mild Metabolic Acidosis\n(Closed AG)"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/d10w_bk"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="Patient is out of DKA"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/cr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="40dp"
+            android:gravity="center"
+            android:text="v1.0.J.7.2023" />
+
+    </LinearLayout>
+</layout>

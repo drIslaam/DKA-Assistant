@@ -3,8 +3,13 @@
 package com.somed.dkaassistant
 
 import android.content.Intent
+import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.core.view.WindowCompat
+import androidx.fragment.app.FragmentManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -19,36 +24,45 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var analytics: FirebaseAnalytics
     private lateinit var mGoogleSignInClient: GoogleSignInClient
-    private lateinit var mAuth: FirebaseAuth
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var auth: FirebaseAuth
+    private var _binding: ActivityMainBinding? = null
+
+    private val binding: ActivityMainBinding
+        get() = checkNotNull(_binding) { "Activity has been destroyed" }
+
+    private val fragmentManager: FragmentManager by lazy { supportFragmentManager }
+    private val statusFragment = StatusFragment()
+    private val calculatorFragment = CalculatorFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        // Inflate and get instance of binding
+        _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // Obtain the FirebaseAnalytics instance.
         analytics = Firebase.analytics
 
-        mAuth = FirebaseAuth.getInstance()
-
-        // gso
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
-            .requestEmail()
-            .build()
-
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
-
-        val auth = Firebase.auth
-        val user = auth.currentUser
-
-        if (user != null) {
-            val userName = user.displayName
-            binding.hello.text = getString(R.string.welcome_message, userName)
+        // Make Status Bar Background White
+        window.statusBarColor = Color.WHITE
+        // Make Status Bar Text Black
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            val controller = WindowCompat.getInsetsController(window, window.decorView)
+            controller.isAppearanceLightStatusBars = true
         } else {
-            // Handle the case where the user is not signed in
+            @Suppress("DEPRECATION")
+            window.decorView.systemUiVisibility =
+                View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         }
+
+        // Inflate Profile Status Fragment
+        fragmentManager.beginTransaction().replace(R.id.profile_fragment_container, statusFragment)
+            .commit()
+
+        // Inflate Profile Status Fragment
+        fragmentManager.beginTransaction().replace(R.id.calculator_fragment_container, calculatorFragment)
+            .commit()
+
 
         // Inside onCreate() method
         binding.logoutButton.setOnClickListener {
@@ -57,8 +71,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun signOutAndStartSignInActivity() {
-        mAuth.signOut()
+        auth = Firebase.auth
+        auth.signOut()
+        // gso
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
 
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
         mGoogleSignInClient.signOut().addOnCompleteListener(this) {
             // Optional: Update UI or show a message to the user
             val intent = Intent(this@MainActivity, SignInActivity::class.java)

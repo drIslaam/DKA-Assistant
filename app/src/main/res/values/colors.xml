@@ -7,4 +7,11 @@
     <color name="red">#FF0000</color>
     <color name="status">#eaf1f4</color>
 
+    <color name="NotificationExistsIcon">#392A18</color>
+    <color name="NotificationNotExistsIcon">#D9D8D7</color>
+
+    <color name="ProfileActionsIconsBackground">#64E7AD</color>
+    <color name="ProfileActionsBarLogoutBackground">#CE588E</color>
+    <color name="ProfileActionIconsBarBackground">#F0F0F0</color>
+
 </resources>
