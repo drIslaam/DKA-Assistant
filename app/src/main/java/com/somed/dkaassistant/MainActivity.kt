@@ -2,12 +2,18 @@
 
 package com.somed.dkaassistant
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.View
+import android.view.View.OnTouchListener
+import android.view.ViewTreeObserver
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.WindowCompat
 import androidx.fragment.app.FragmentManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -27,6 +33,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private var _binding: ActivityMainBinding? = null
 
+
+
     private val binding: ActivityMainBinding
         get() = checkNotNull(_binding) { "Activity has been destroyed" }
 
@@ -34,6 +42,7 @@ class MainActivity : AppCompatActivity() {
     private val statusFragment = StatusFragment()
     private val calculatorFragment = CalculatorFragment()
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Inflate and get instance of binding
@@ -44,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         analytics = Firebase.analytics
 
         // Make Status Bar Background White
-        window.statusBarColor = Color.WHITE
+        window.statusBarColor = Color.parseColor("#FBF9FA")
         // Make Status Bar Text Black
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             val controller = WindowCompat.getInsetsController(window, window.decorView)
@@ -60,7 +69,8 @@ class MainActivity : AppCompatActivity() {
             .commit()
 
         // Inflate Profile Status Fragment
-        fragmentManager.beginTransaction().replace(R.id.calculator_fragment_container, calculatorFragment)
+        fragmentManager.beginTransaction()
+            .replace(R.id.calculator_fragment_container, calculatorFragment)
             .commit()
 
 
@@ -68,6 +78,10 @@ class MainActivity : AppCompatActivity() {
         binding.logoutButton.setOnClickListener {
             signOutAndStartSignInActivity()
         }
+
+
+
+
     }
 
     private fun signOutAndStartSignInActivity() {
