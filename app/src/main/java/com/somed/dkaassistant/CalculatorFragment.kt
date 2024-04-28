@@ -4,7 +4,6 @@ import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Rect
-import android.os.Build.VERSION_CODES.R
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
